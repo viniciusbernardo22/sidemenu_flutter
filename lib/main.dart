@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './navbar.dart';
+import './questionario.dart';
 
 void main() => runApp(const QuizApp());
 
@@ -9,34 +10,6 @@ class QuizApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final _perguntas = [
-      {
-        'TI': [
-          {'texto': 'Teste TI1', 'pontuacao': 0},
-          {'texto': 'Teste TI2', 'pontuacao': 0},
-          {'texto': 'Teste TI3', 'pontuacao': 0}
-        ],
-        'Biologia': [
-          {'texto': 'Teste Bio1', 'pontuacao': 0},
-          {'texto': 'Teste Bio2', 'pontuacao': 0},
-          {'texto': 'Teste Bio3', 'pontuacao': 0},
-        ],
-        'Matematica': [
-          {'texto': 'Teste Mat1', 'pontuacao': 0},
-          {'texto': 'Teste Mat2', 'pontuacao': 0},
-          {'texto': 'Teste Mat3', 'pontuacao': 0},
-        ],
-        'EducacaoFisica': [
-          {'texto': 'Teste EdFisica1', 'pontuacao': 0},
-          {'texto': 'Teste EdFisica2', 'pontuacao': 0},
-          {'texto': 'Teste EdFisica3', 'pontuacao': 0},
-        ],
-      }
-    ];
-    final index = 0;
-    final pontuacao = 0;
-    bool temPergunta = false;
-
     final title = 'Quiz de Conhecimentos';
 
     return MaterialApp(
@@ -93,34 +66,12 @@ class QuizApp extends StatelessWidget {
               subtitle: Text('Tema: Tudo e mais um pouco !'),
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Questionario();
-                }));
+                print('Conhecimentos gerais');
               },
             ),
           ],
         ),
       ),
-      initialRoute: '/',
-      routes: {
-        '/Inicio': (context) => QuizApp(),
-        '/Questionario': (context) => Questionario(),
-      },
     );
-  }
-}
-
-class Questionario extends StatefulWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Questionario(),
-    );
-  }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
 }
